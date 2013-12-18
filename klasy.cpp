@@ -23,12 +23,14 @@ bool przycisk::wydarzenie(SDL_Event wydarzenie)
 
 	mouse_x = wydarzenie.button.x;
 	mouse_y = wydarzenie.button.y;
-
-	if (ksztalt.x < mouse_x && (ksztalt.x + 500) > mouse_x && ksztalt.y < mouse_y && (ksztalt.y + 200) > mouse_y)
+	if (wydarzenie.type == SDL_MOUSEBUTTONUP)
 	{
-		return true;
-	}
-	else{
-		return false
+		if (ksztalt.x < mouse_x && (ksztalt.x + 500) > mouse_x && ksztalt.y < mouse_y && (ksztalt.y + 200) > mouse_y)
+		{
+			return true;
+		}
+		else{
+			return false;
+		}
 	}
 }
