@@ -31,4 +31,5 @@ public:
 	bool wydarzenie(SDL_Event);
 };
 
+
 #endif
