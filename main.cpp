@@ -4,8 +4,6 @@
 #include <SDL_thread.h>
 #include <iostream>
 #include <string>
-#include <cstdlib>
-#include <iostream>
 #include "klasy.h"
 #include "funkcje.h"
 
@@ -44,7 +42,6 @@ void init()
 
 int main(int argc, char** argv)
 {
-	srand(time(NULL));
 	bool quit = false; // Flaga zamykająca główną pętle
 	bool pierwszy_raz = false; // Flaga zamykająca wyświetlenie przycisków w manu
 
@@ -67,12 +64,27 @@ int main(int argc, char** argv)
 		}
 		if (SDL_PollEvent(&wydarzenie)) // Sprawdzacy
 		{
-			zaczyjanacy_gre.wydarzenie;
+			if (zaczyjanacy_gre.wydarzenie(wydarzenie) == true) // GRA ZACZYNA SIĘ TUTAJ WOWOkdodkaofjesioafesagnveiznvjsznbjbjdsbnekbsbnjbnodsbns
+			{
+
+
+
+
+
+
+
+
+
+
+
+			}
+			if (konczacy_gre.wydarzenie(wydarzenie) == true)
+			{
+				quit = true;
+			}
 		}
 
 	}
 
 	return 0;
-	//asdasffrgadfgaerggrgra
-	//KUPA KUPA KUPA KUPA KUPA KUPA
 }
