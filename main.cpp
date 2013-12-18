@@ -4,6 +4,8 @@
 #include <SDL_thread.h>
 #include <iostream>
 #include <string>
+#include <cstdlib>
+#include <iostream>
 #include "klasy.h"
 #include "funkcje.h"
 
@@ -42,6 +44,7 @@ void init()
 
 int main(int argc, char** argv)
 {
+	srand(time(NULL));
 	bool quit = false; // Flaga zamykająca główną pętle
 	bool pierwszy_raz = false; // Flaga zamykająca wyświetlenie przycisków w manu
 
