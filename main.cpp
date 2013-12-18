@@ -2,7 +2,8 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <SDL_thread.h>
-#include <iostream>
+#include <cstdlib>
+#include <ctime>
 #include <string>
 #include "klasy.h"
 #include "funkcje.h"
@@ -42,6 +43,7 @@ void init()
 
 int main(int argc, char** argv)
 {
+	srand(time(NULL));
 	bool quit = false; // Flaga zamykająca główną pętle
 	bool pierwszy_raz = false; // Flaga zamykająca wyświetlenie przycisków w manu
 
