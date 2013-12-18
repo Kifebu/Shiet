@@ -1,4 +1,5 @@
 #include <SDL.h>
+#include <cstdlib>
 #include "funkcje.h"
 #include "klasy.h"
 
@@ -11,4 +12,10 @@ void wgraj_surface(int x, int y, SDL_Surface* surface, SDL_Surface* przeznaczeni
 	polozenie.y = y;
 
 	SDL_BlitSurface(surface, NULL, przeznaczenie, &polozenie);
+}
+//funkcja losujaca -> przedzial + poczatek 
+int losowanie(int przedzial , int liczba_poczatek)
+{
+	int b = (rand() % przedzial) + liczba_poczatek; 
+	return  b;
 }
