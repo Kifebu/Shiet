@@ -48,7 +48,7 @@ int main(int argc, char** argv)
 {
 	//srand(time(NULL));
 
-	int y_przesuwania = -960;
+	int y_przesuwania = -960, poprzedia = -960;
 	int liczby[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 	bool quit = false; // Flaga zamykająca główną pętle
@@ -59,6 +59,7 @@ int main(int argc, char** argv)
 	przycisk konczacy_gre;
 
 	SDL_Event wydarzenie;
+	SDL_Event wydarzenie2;
 
 	gowno kupa[10];
 
@@ -70,8 +71,8 @@ int main(int argc, char** argv)
 		SDL_BlitSurface(tlo_menu_glownego, NULL, gScreenSurface, NULL);
 		if (!pierwszy_raz) // Wgrywa przyciski z głównego menu na obraz
 		{
-			zaczyjanacy_gre.wgraj_przycisk(szerokosc_ekranu / 2 - 250, 200, start_gry, gScreenSurface, gWindow);
-			konczacy_gre.wgraj_przycisk(szerokosc_ekranu / 2 - 250, 500, koniec_gry, gScreenSurface, gWindow);
+			zaczyjanacy_gre.wgraj_przycisk(szerokosc_ekranu / 2 - 250, wysokosc_ekranu / 2 - 250, start_gry, gScreenSurface, gWindow);
+			konczacy_gre.wgraj_przycisk(szerokosc_ekranu / 2 - 250, wysokosc_ekranu/2, koniec_gry, gScreenSurface, gWindow);
 			pierwszy_raz = true;
 		}
 		if (SDL_PollEvent(&wydarzenie)) // Sprawdzacy
@@ -80,16 +81,122 @@ int main(int argc, char** argv)
 			{
 				while (!quit_z_gry)
 				{
-					y_przesuwania += 2;
+					y_przesuwania += 3;
+					if(poprzedia < 1000 ) poprzedia += 3;
+					if (poprzedia >= 1000) poprzedia = 1000;
 					if (y_przesuwania == 0) y_przesuwania = -960;
 					wgraj_surface(0, y_przesuwania, tlo_w_grze, gScreenSurface, gWindow);
-					for (int i = 0; i < 10; i++)
+
+					if (poprzedia > -960)
 					{
-						liczby[i] += 2;
-						kupa[i].wgrywaj_gonwo(liczby[i], kupap, gScreenSurface, gWindow);
-						if (liczby[i] == 960){ liczby[i] = 0; kupa[i].ksztalt.x = losowanie(600, 100); }
+						if (liczby[0] == 0) liczby[0] = losowanie(700, 100);
+
+						kupa[0].licznik(liczby[0], kupap, gScreenSurface, gWindow);
+
+
+						if (kupa[0].ksztalt.y > wysokosc_ekranu ){ liczby[0] = 0; kupa[0].ksztalt.y = -60; }
 					}
 
+					if (poprzedia > -864)
+					{
+						if (liczby[1] == 0) liczby[1] = losowanie(700, 100);
+
+						kupa[1].licznik(liczby[1], kupap, gScreenSurface, gWindow);
+
+
+
+						if (kupa[1].ksztalt.y > wysokosc_ekranu ) { liczby[1] = 0; kupa[1].ksztalt.y = -60; }
+					}
+
+					if (poprzedia > -786)
+					{
+						if (liczby[2] == 0) liczby[2] = losowanie(700, 100);
+
+						kupa[2].licznik(liczby[2], kupap, gScreenSurface, gWindow);
+
+
+						if (kupa[2].ksztalt.y > wysokosc_ekranu ) { liczby[2] = 0; kupa[2].ksztalt.y = -60; }
+					}
+
+					if (poprzedia > -960 + 96*3)
+					{
+						if (liczby[3] == 0) liczby[3] = losowanie(700, 100);
+
+						kupa[3].licznik(liczby[3], kupap, gScreenSurface, gWindow);
+
+		
+
+						if (kupa[3].ksztalt.y > wysokosc_ekranu ) { liczby[3] = 0; kupa[3].ksztalt.y = -60; }
+					}
+
+					if (poprzedia > -960 + 96 * 4)
+					{
+						if (liczby[4] == 0) liczby[4] = losowanie(700, 100);
+
+						kupa[4].licznik(liczby[4], kupap, gScreenSurface, gWindow);
+
+				
+
+						if (kupa[4].ksztalt.y > wysokosc_ekranu ) { liczby[4] = 0; kupa[4].ksztalt.y = -60; }
+					}
+
+					if (poprzedia > -960 + 96 * 5)
+					{
+						if (liczby[5] == 0) liczby[5] = losowanie(700, 100);
+
+						kupa[5].licznik(liczby[5], kupap, gScreenSurface, gWindow);
+
+			
+
+						if (kupa[5].ksztalt.y > wysokosc_ekranu ) { liczby[5] = 0; kupa[5].ksztalt.y = -60; }
+					}
+
+					if (poprzedia > -960 + 96 * 6)
+					{
+						if (liczby[6] == 0) liczby[6] = losowanie(700, 100);
+
+						kupa[6].licznik(liczby[6], kupap, gScreenSurface, gWindow);
+
+		
+
+						if (kupa[6].ksztalt.y > wysokosc_ekranu ) { liczby[6] = 0; kupa[6].ksztalt.y = -60; }
+					}
+
+					if (poprzedia > -960 + 96 * 7)
+					{
+						if(liczby[7] == 0) liczby[7] = losowanie(700, 100);
+
+						kupa[7].licznik(liczby[7], kupap, gScreenSurface, gWindow);
+
+				
+
+						if (kupa[7].ksztalt.y > wysokosc_ekranu ) { liczby[7] = 0; kupa[7].ksztalt.y = -60; }
+					}
+
+					if (poprzedia > -960 + 96 * 8)
+					{
+						if (liczby[8] == 0) liczby[8] = losowanie(700, 100);
+
+						kupa[8].licznik(liczby[8], kupap, gScreenSurface, gWindow);
+
+		
+
+						if (kupa[8].ksztalt.y > wysokosc_ekranu ){ liczby[8] = 0; kupa[8].ksztalt.y = -60; }
+					}
+
+					if (poprzedia > -960 + 96 * 9)
+					{
+						if (liczby[9] == 0) liczby[9] = losowanie(700, 100);
+
+						kupa[9].licznik(liczby[9], kupap, gScreenSurface, gWindow);
+
+
+						if (kupa[9].ksztalt.y > wysokosc_ekranu){ liczby[9] = 0; kupa[9].ksztalt.y = -60 ; }
+					}
+
+
+
+					SDL_UpdateWindowSurface(gWindow);
 					
 				}
 			}
