@@ -8,8 +8,8 @@
 #include "klasy.h"
 #include "funkcje.h"
 
-int szerokosc_ekranu = 1920;
-int wysokosc_ekranu = 1080;
+int szerokosc_ekranu = 960;
+int wysokosc_ekranu = 540;
 
 // Zmienne globalne ogólne
 SDL_Window* gWindow = NULL;
@@ -26,9 +26,9 @@ SDL_Surface* koniec_gry = NULL;
 void loadmedia();
 void loadmedia()
 {
-	start_gry = SDL_LoadBMP( "start_gry.bmp" );
-	koniec_gry = SDL_LoadBMP( "koniec.bmp" );
-	tlo_menu_glownego = SDL_LoadBMP( "tlo_menu_glownego.bmp" );
+	start_gry = SDL_LoadBMP("start_gry.bmp");
+	koniec_gry = SDL_LoadBMP("koniec.bmp");
+	tlo_menu_glownego = SDL_LoadBMP("tlo_menu_glownego.bmp");
 }
 
 void init();
@@ -60,8 +60,8 @@ int main(int argc, char** argv)
 		SDL_BlitSurface(tlo_menu_glownego, NULL, gScreenSurface, NULL);
 		if (!pierwszy_raz) // Wgrywa przyciski z głównego menu na obraz
 		{
-			zaczyjanacy_gre.wgraj_przycisk(szerokosc_ekranu / 2 - 250, wysokosc_ekranu / 4, start_gry, gScreenSurface, gWindow);
-			konczacy_gre.wgraj_przycisk(szerokosc_ekranu / 2 - 250, wysokosc_ekranu / 2, koniec_gry, gScreenSurface, gWindow);
+			zaczyjanacy_gre.wgraj_przycisk(szerokosc_ekranu / 2 - 250, 50, start_gry, gScreenSurface, gWindow);
+			konczacy_gre.wgraj_przycisk(szerokosc_ekranu / 2 - 250, 300, koniec_gry, gScreenSurface, gWindow);
 			pierwszy_raz = true;
 		}
 		if (SDL_PollEvent(&wydarzenie)) // Sprawdzacy
