@@ -11,7 +11,7 @@ private:
 	int y = 0;
 
 public:
-	void poruszanie(); // Poruszanie się postacią
+	void zderzenie(); // Poruszanie się postacią
 
 };
 
@@ -39,10 +39,20 @@ private:
 	int x = 0;
 	int y = 0;
 
+	int zycie = 3;
+
 public:
+
 	SDL_Rect ksztalt;
 
 	void wgrywaj_gonwo(int, SDL_Surface*, SDL_Surface*, SDL_Window*);
+
+	void licznik(int,SDL_Surface*, SDL_Surface*, SDL_Window*);
+
+	void zderzenie();
+
+	//bool klikanie(SDL_Event);
 };
+
 
 #endif
