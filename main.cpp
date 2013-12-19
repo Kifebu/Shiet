@@ -20,14 +20,14 @@ SDL_Surface* tlo_menu_glownego = NULL;
 SDL_Surface* start_gry = NULL;
 SDL_Surface* koniec_gry = NULL;
 SDL_Surface* tlo_w_grze = NULL;
-SDL_Surface* kupa = NULL;
+SDL_Surface* kupap = NULL;
 
 // ZJEBANE FUNKCJE
 
 void loadmedia();
 void loadmedia()
 {
-	kupa = SDL_LoadBMP("kupa.bmp");
+	kupap = SDL_LoadBMP("kupa.bmp");
 	start_gry = SDL_LoadBMP("start_gry.bmp");
 	koniec_gry = SDL_LoadBMP("koniec.bmp");
 	tlo_menu_glownego = SDL_LoadBMP("tlo_menu_glownego.bmp");
@@ -49,6 +49,7 @@ int main(int argc, char** argv)
 	//srand(time(NULL));
 
 	int y_przesuwania = -960;
+	int liczby[10] = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
 	bool quit = false; // Flaga zamykająca główną pętle
 	bool pierwszy_raz = false; // Flaga zamykająca wyświetlenie przycisków w manu
@@ -58,6 +59,8 @@ int main(int argc, char** argv)
 	przycisk konczacy_gre;
 
 	SDL_Event wydarzenie;
+
+	gowno kupa[10];
 
 	init(); // Tworzy okno
 	loadmedia(); // Wczytuje wszystkie obrazy
@@ -77,17 +80,17 @@ int main(int argc, char** argv)
 			{
 				while (!quit_z_gry)
 				{
-					y_przesuwania += 1;
+					y_przesuwania += 2;
 					if (y_przesuwania == 0) y_przesuwania = -960;
 					wgraj_surface(0, y_przesuwania, tlo_w_grze, gScreenSurface, gWindow);
-					wgraj_surface(losowanie(660, 100), y_przesuwania,kupa, gScreenSurface, gWindow);
+					for (int i = 0; i < 10; i++)
+					{
+						liczby[i] += 2;
+						kupa[i].wgrywaj_gonwo(liczby[i], kupap, gScreenSurface, gWindow);
+						if (liczby[i] == 960){ liczby[i] = 0; kupa[i].ksztalt.x = losowanie(600, 100); }
+					}
 
-
-
-
-
-
-
+					
 				}
 			}
 			if (konczacy_gre.wydarzenie(wydarzenie) == true)
