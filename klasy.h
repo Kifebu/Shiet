@@ -31,4 +31,18 @@ public:
 	bool wydarzenie(SDL_Event);
 };
 
+// Gówno
+
+class gowno
+{
+private:
+	int x = 0;
+	int y = 0;
+
+public:
+	SDL_Rect ksztalt;
+
+	void wgrywaj_gonwo(int, SDL_Surface*, SDL_Surface*, SDL_Window*);
+};
+
 #endif
