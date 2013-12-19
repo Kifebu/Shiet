@@ -12,7 +12,7 @@ void wgraj_surface(int x, int y, SDL_Surface* surface, SDL_Surface* przeznaczeni
 	polozenie.y = y;
 
 	SDL_BlitSurface(surface, NULL, przeznaczenie, &polozenie);
-	SDL_UpdateWindowSurface(okno);
+	//SDL_UpdateWindowSurface(okno);
 }
 //funkcja losujaca -> przedzial + poczatek 
 int losowanie(int przedzial, int liczba_poczatek)
