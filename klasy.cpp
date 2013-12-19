@@ -34,3 +34,11 @@ bool przycisk::wydarzenie(SDL_Event wydarzenie)
 		}
 	}
 }
+
+void gowno::wgrywaj_gonwo(int stale , SDL_Surface* obrazek, SDL_Surface* oknoSurface, SDL_Window* window)
+{
+	ksztalt.y = stale;
+
+	SDL_BlitSurface(obrazek, NULL, oknoSurface, &ksztalt);
+	SDL_UpdateWindowSurface(window);
+}
