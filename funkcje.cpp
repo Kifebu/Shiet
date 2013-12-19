@@ -20,4 +20,3 @@ int losowanie(int przedzial, int liczba_poczatek)
 	int b = (rand() % przedzial) + liczba_poczatek;
 	return  b;
 }
-
